@@ -4,15 +4,19 @@
 #include <stdlib.h>
 
 
+
 typedef struct node{
-    int distance;
-    struct node *left;
-    struct node *right;
+    int weight;
+    struct node *connection_forth;
+    struct node *next;
+    struct node *before;
+    char name[2];
 }node_t;
 
+node_t *nodeInnit(int weight, char nodeName[2]);
 
-void delDijkstraNode(struct node *Dijkstra){
-    
-}
+void newDijkstraNode(int distance,char nodeName[2], char endNode[2]);
+
+void delDijkstraNode(struct node *Dijkstra);
 
 #endif
