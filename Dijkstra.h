@@ -10,13 +10,16 @@ typedef struct node{
     struct node *connection_forth;
     struct node *next;
     struct node *before;
-    char name[2];
+    char name[3];
 }node_t;
 
-node_t *nodeInnit(int weight, char nodeName[2]);
 
-void newDijkstraNode(int distance,char nodeName[2], char endNode[2]);
+node_t *nodeInnit(int weight, char nodeName[3]);
+
+void newDijkstraNode(int distance,char nodeName[3], char endNode[3]);
 
 void delDijkstraNode(struct node *Dijkstra);
+
+void showNodes();
 
 #endif
