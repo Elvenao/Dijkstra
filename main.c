@@ -3,35 +3,51 @@
 #include <stdint.h>
 #include <string.h>
 #include "Dijkstra.h"
+#include <conio.h>
 
 int main(){
-    printf("Program running....");
-    char tmpName[3];
-    char tmpEndName[3];
+
+    char tmpName[NAME_LENGTH];
+    char tmpEndName[NAME_LENGTH];
     int tmpWeight;
     int option = 0;
     while(option != 4){
-        printf("\nMenu: \n1.Create new node\n2.Delete node\n3.Show created nodes\n4.Exit\nInsert option: ");
-        scanf("%d",&option);
-        printf("%d\n",option);
         system("cls");
+        printf("\nMenu: \n1.Create new node\n2.Edit node\n3.Delete node\n4.Show created nodes\n5.Exit\nInsert option: ");
+        scanf("%d",&option);
         switch(option){
             case 1:
                 printf("\nInsert the node's name: ");
-                scanf("%1s", tmpName);
-                printf("\nInsert the end node's name: ");
-                scanf("%1s", tmpEndName);
-                printf("\nInsert the weight: ");
+                scanf("%2s", tmpName);
+                printf("Insert the end node's name: ");
+                scanf("%2s", tmpEndName);
+                printf("Insert the weight: ");
+                
                 scanf("%d",&tmpWeight);
                 
+                
                 newDijkstraNode(tmpWeight,tmpName,tmpEndName);
+
                 break;
             case 2:
+                showNodes();
+                printf("\nInsert the node's name: ");
+                scanf("%2s", tmpName);
+                printf("Insert the end node's name: ");
+                scanf("%2s", tmpEndName);
+                printf("Insert the weight: ");
+                
+                scanf("%d",&tmpWeight);
                 break;
             case 3:
-                showNodes();
+                printf("Delete node");
                 break;
             case 4:
+                showNodes();
+                printf("\n\nPress any button to continue...");
+                getch();
+                break;
+            case 5:
                 printf("\nGood bye...");
                 break;
             default:

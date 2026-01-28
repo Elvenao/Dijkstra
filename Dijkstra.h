@@ -1,24 +1,36 @@
-#ifndef DIJKSTRA
-#define DIJKSTRA
+#ifndef DIJKSTRA_H
+#define DIJKSTRA_H
 
 #include <stdlib.h>
-
-
+#include "list.h"
 
 typedef struct node{
-    int weight;
-    struct node *connection_forth;
+    char name[NAME_LENGTH];
+    union{
+        struct{
+            int weight; 
+            struct node *connection_forth;    
+        }body;
+        struct node *hierarchy;
+    }type;
     struct node *next;
     struct node *before;
-    char name[3];
+    list_t *connections;
+    
 }node_t;
 
 
-node_t *nodeInnit(int weight, char nodeName[3]);
 
-void newDijkstraNode(int distance,char nodeName[3], char endNode[3]);
+
+node_t *nodeInnit(int weight, char nodeName[NAME_LENGTH]);
+
+void newDijkstraNode(int distance,char nodeName[NAME_LENGTH], char endNode[NAME_LENGTH]);
 
 void delDijkstraNode(struct node *Dijkstra);
+
+int existentConnection(char nodeName[NAME_LENGTH]);
+
+node_t *seekNodeCommon(char nodeName[NAME_LENGTH]);
 
 void showNodes();
 

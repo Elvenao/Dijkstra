@@ -1,6 +1,5 @@
 main.exe
 main.o
 Dijkstra.o
-Makefile
 test.c
 test.exe
